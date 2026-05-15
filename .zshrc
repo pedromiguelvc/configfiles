@@ -18,6 +18,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export KEYTIMEOUT=1
 export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
+export _ZO_DOCTOR=0
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -156,12 +157,13 @@ alias ta='tmux attach'
 
 ## Docker
 alias d='docker'
-alias dp='docker ps --format "table {{.Status}}\t{{.Names}}"'
-alias dpp='docker ps --format "table {{.ID}}\t{{.Status}}\t{{.Names}}\t{{.Ports}}"'
-alias dpa='docker ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Names}}"'
+alias dp='docker ps --format "table {{.Status}}\t{{.ID}}\t{{.Names}}"'
+alias dpp='docker ps --format "table {{.Status}}\t{{.ID}}\t{{.Names}}\t{{.Ports}}"'
+alias dpa='docker ps -a --format "table {{.Status}}\t{{.ID}}\t{{.Names}}"'
 alias dl='docker logs'
 alias dc='docker compose'
 alias dcu='docker compose up'
+alias dcub='docker compose up --build'
 alias dcd='docker compose down'
 
 ## Git
@@ -177,11 +179,6 @@ alias gk='git checkout'
 alias glgg='git log --oneline --graph --all --decorate'
 alias gdff='git diff --output-indicator-new='+' --output-indicator-old='-''
 alias lg='lazygit'
-
-## AI
-alias cld='claude'
-alias cldc='claude --continue'
-alias cldr='claude --resume'
 
 ## Alert for long-running commands
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -199,7 +196,22 @@ _auto_venv() {
   fi
 }
 
+# HOOKS DEFS
 add-zsh-hook chpwd _auto_venv
+
+function _launch_claude_code() {
+	claude
+	zle reset-prompt
+}
+function _clear_prompt() {
+	printf "\e[H\e[2J"
+	zle reset-prompt
+}
+
+zle -N _launch_claude_code
+zle -N _clear_prompt
+bindkey '^Xc' _launch_claude_code
+bindkey '^Xx' _clear_prompt
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

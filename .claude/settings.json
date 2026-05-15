@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(make all *)",
+      "Bash(./bin/best_matching_serial ../dictionary.txt word)",
+      "Bash(./bin/best_matching_parallel ../dictionary.txt word)",
+      "Bash(./bin/best_matching_semaphore ../dictionary.txt word)"
+    ],
+    "defaultMode": "default"
+  },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/carburauto/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "pyright-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "low",
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark",
+  "editorMode": "vim",
+  "autoCompactEnabled": false,
+  "effort": "low"
+}
