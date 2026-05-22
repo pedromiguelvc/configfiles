@@ -199,19 +199,24 @@ _auto_venv() {
 # HOOKS DEFS
 add-zsh-hook chpwd _auto_venv
 
+# Custom Functions
 function _launch_claude_code() {
 	claude
 	zle reset-prompt
 }
 function _clear_prompt() {
-	printf "\e[H\e[2J"
+	clear
 	zle reset-prompt
 }
 
 zle -N _launch_claude_code
 zle -N _clear_prompt
+
+# Bindkeys
 bindkey '^Xc' _launch_claude_code
 bindkey '^Xx' _clear_prompt
+bindkey '^[[C' autosuggest-accept
+bindkey '^[[1;5C' forward-word
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
