@@ -17,7 +17,7 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
 export KEYTIMEOUT=1
-export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up'
+export FZF_DEFAULT_OPTS='--bind=tab:down,shift-tab:up --layout=reverse'
 export _ZO_DOCTOR=0
 
 # Set name of the theme to load --- if set to "random", it will
@@ -82,6 +82,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+PROMPT_EOL_MARK=""
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -138,15 +140,16 @@ alias cat='bat --paging=never'
 alias rm='trash-put' # Safe rm
 alias c='printf "\e[H\e[2J"'
 alias scv='source .venv/bin/activate' # source python enviroment
+alias s='sudo'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
 ## Core programs aliases
-alias v='vimx'
 alias py='python3'
 alias mk='make'
-alias nv='nvim'
+alias v='nvim'
+alias vs='nvim -S'
 
 ## Tmux
 alias t='tmux'

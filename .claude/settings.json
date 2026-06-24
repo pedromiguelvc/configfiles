@@ -1,4 +1,5 @@
 {
+  "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
       "Bash(make all *)",
@@ -8,7 +9,6 @@
     ],
     "defaultMode": "default"
   },
-  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "bash /home/carburauto/.claude/statusline-command.sh"
@@ -17,10 +17,11 @@
     "pyright-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": false,
-  "effortLevel": "low",
+  "tui": "default",
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark",
+  "theme": "custom:tokyo-night",
   "editorMode": "vim",
   "autoCompactEnabled": false,
-  "effort": "low"
+  "effort": "low",
+  "model": "sonnet"
 }
