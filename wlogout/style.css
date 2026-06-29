@@ -41,3 +41,4 @@ button:hover {
 #suspend   { background-image: image(url("/usr/share/wlogout/icons/suspend.png")); }
 #reboot    { background-image: image(url("/usr/share/wlogout/icons/reboot.png")); }
 #shutdown  { background-image: image(url("/usr/share/wlogout/icons/shutdown.png")); }
+#hibernate { background-image: image(url("/usr/share/wlogout/icons/hibernate.png")); }
